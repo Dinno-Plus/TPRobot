@@ -73,7 +73,7 @@ export const Shutdown = () => {
       <Typography className="content">
         {progress < 100
           ? "로봇을 종료 중입니다."
-          : "로봇이 종료되었습니다.\n인더스웰를 이용하시려면 전원을 켜주세요."}
+          : "로봇이 종료되었습니다.\n 이용하시려면 전원을 켜주세요."}
       </Typography>
       {progress < 100 && (
         <div className="progress">

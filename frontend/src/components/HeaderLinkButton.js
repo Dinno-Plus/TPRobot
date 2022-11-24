@@ -13,7 +13,7 @@ export const HeaderLinkButton = ({ to, color, icon, children, ...props }) => {
         sx={{
           display: "flex",
           height: `${84 / 12}vh`, // 84,
-          width: `${290 / 19.2}vw`, // 290,
+          width: `${260 / 19.2}vw`, // 260,
           padding: `${0}vh ${32 / 19.2}vw`, // `${0}px ${32}px`,
           fontSize: `${32 / 12}vh`, //  32,
           borderRadius: `${42 / 12}vh`, // 42,

@@ -228,7 +228,7 @@ export const Serving = () => {
       <FullPaperRightPanelOld
         fullPaperProps={{
           img: loadingImg,
-          content1: "인더스웰를 준비 중입니다.",
+          content1: "준비 중입니다.",
         }}
       />
     );

@@ -73,21 +73,21 @@ export const Header = () => {
         <HeaderLinkButton
           icon={<ServingIcon />}
           color="blue"
-          children="통합 안전 점검"
+          children="통합 안전"
           to="serving"
           onClick={handleHeaderLinkButtonClick(0)}
         />
         <HeaderLinkButton
           icon={<CruisingIcon />}
           color="green"
-          children={`시/후각 센서 점검`}
+          children={`시/후각 센서`}
           to="cruising"
           onClick={handleHeaderLinkButtonClick(1)}
         />
         <HeaderLinkButton
           icon={<CallingIcon />}
           color="yellow"
-          children="청각 센서 점검"
+          children="청각 센서"
           to="calling"
           onClick={handleHeaderLinkButtonClick(2)}
         />
