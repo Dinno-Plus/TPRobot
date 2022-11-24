@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "servinggo": "file:.."
+  }
+}
