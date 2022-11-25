@@ -12,11 +12,11 @@ export const DashboardIcon = (props) => (
 export const ServingIcon = (props) => (
   <img src={"./images/emergencyImg.png"} alt="emergencyImg" {...props} />
   );
-export const CruisingIcon = (props) => (
+export const SensorIcon = (props) => (
   <img src={"./images/eye-icon.png"} alt="eye" {...props} />
 );
-export const CallingIcon = (props) => (
-  <img src={"./images/callingIcon.png"} alt="calling" {...props} />
+export const CruisingIcon = (props) => (
+  <img src={"./images/cruisingIcon.png"} alt="calling" {...props} />
 );
 export const MappingIcon = (props) => (
   <img src={"./images/mappingIcon.png"} alt="mapping" {...props} />

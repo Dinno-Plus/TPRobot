@@ -137,14 +137,120 @@ export const Cruising = () => {
   };
 
   let rightPanel;
-  rightPanel = (
-    <FullPaperRightPanelOld
-      fullPaperProps={{
-        img: loadingImg,
-        content1: "준비 중입니다.",
-      }}
-    />
-  );
+  if (state === "loading") {
+    rightPanel = (
+      <FullPaperRightPanelOld
+        fullPaperProps={{
+          img: loadingImg,
+          content1: "준비 중입니다.",
+          content2: "잠시만 기다려 주세요.",
+        }}
+      />
+    );
+  } else if (state === "emergency") {
+    rightPanel = (
+      <FullPaperRightPanelOld
+        fullPaperProps={{
+          img: emergencyImg,
+          content1: "비상 버튼이 눌려있습니다.",
+          content2:
+            "크루즈 운행을 원하시면\n머리 위에 있는 비상 버튼을 풀어 주세요.",
+        }}
+      />
+    );
+  } else if (state === "charging") {
+    rightPanel = (
+      <FullPaperRightPanelOld
+        fullPaperProps={{
+          img: chargingImg,
+          content1: "점검 로봇이 충전 중입니다.",
+          content2: "크루즈 운행을 원하시면\n플러그를 콘센트에서 뽑아주세요.",
+        }}
+      />
+    );
+  } else if (mode === "serving") {
+    rightPanel = (
+      <FullPaperRightPanelOld
+        fullPaperProps={{
+          img: goingImg,
+          content1: "점검 로봇이 서빙 운행 중입니다.",
+          content2: "크루즈 운행을 원하시면\n현재 서빙 운행을 취소해 주세요.",
+        }}
+        bottomButtonProps={{
+          label: "서빙 운행 취소",
+          color: "red",
+          icon: <CloseThickIcon />,
+          onClick: handleCancelClick,
+        }}
+      />
+    );
+  } else if (mode === "calling") {
+    rightPanel = (
+      <FullPaperRightPanelOld
+        fullPaperProps={{
+          img: goingImg,
+          content1: "점검 로봇이 호출 운행 중입니다.",
+          content2: "크루즈 운행을 원하시면\n현재 호출 운행을 취소해 주세요.",
+        }}
+        bottomButtonProps={{
+          label: "호출 운행 취소",
+          color: "red",
+          icon: <CloseThickIcon />,
+          onClick: handleCancelClick,
+        }}
+      />
+    );
+  } else if (state === "ready") {
+    rightPanel = (
+      <DestinationGridRightPanel
+        color="green"
+        miniPaperProps={{
+          icon: <CruisingIcon />,
+          content: '목적지를 선택하신 후\n"크루즈 시작" 버튼을 눌러주세요.',
+        }}
+        destinationGridProps={{
+          mapName: "",
+          destinations: destinationsPlus,
+          badge: "order",
+          onClick: handleDestinationClick,
+          onChange: null,
+          onAdd: null,
+        }}
+        bottomButtonProps={{
+          label: "크루즈 시작",
+          labelAlign: "center",
+          icon: <PlayIcon />,
+          disabled: goals.length < 2,
+          onClick: handleStartClick,
+        }}
+      />
+    );
+  } else if (state === "going" || state === "arrived") {
+    rightPanel = (
+      <ProgressRightPanel
+        progressPaperProps={{
+          goal: goal.table,
+          nextGoal: nextGoal.table,
+          pause,
+          color: "green",
+          progress,
+        }}
+        leftBottomButtonProps={{
+          color: "red",
+          label: nextGoal.table ? "크루즈 취소" : "홈 복귀 취소",
+          icon: <CloseThickIcon />,
+          onClick: handleCancelClick,
+        }}
+        rightBottomButtonProps={{
+          color: pause ? "green" : "whiteGreen",
+          label: pause ? "다시 시작" : "일시 정지",
+          icon: pause ? <PlayIcon /> : <PauseIcon />,
+          onClick: handlePauseClick,
+        }}
+      />
+    );
+  }
+
   return (
     <>
       <TwoPanelLayout

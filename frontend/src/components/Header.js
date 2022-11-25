@@ -10,7 +10,7 @@ import {
   secretRouteCodeLength,
 } from "../constants";
 import { HeaderBattery, HeaderLinkButton, HeaderSettingButton } from "./";
-import { ServingIcon, CruisingIcon, CallingIcon, MappingIcon, DashboardIcon } from "./icons";
+import { ServingIcon, CruisingIcon, MappingIcon, SensorIcon } from "./icons";
 import { compareArray, playButtonClickSound } from "../utils";
 import { HeaderSettingDialog } from "./HeaderSettingDialog";
 
@@ -78,17 +78,17 @@ export const Header = () => {
           onClick={handleHeaderLinkButtonClick(0)}
         />
         <HeaderLinkButton
-          icon={<CruisingIcon />}
+          icon={<SensorIcon />}
           color="green"
-          children={`시/후각 센서`}
-          to="cruising"
+          children={`센서`}
+          to="calling"
           onClick={handleHeaderLinkButtonClick(1)}
         />
         <HeaderLinkButton
-          icon={<CallingIcon />}
+          icon={<CruisingIcon />}
           color="yellow"
-          children="청각 센서"
-          to="calling"
+          children="크루즈"
+          to="cruising"
           onClick={handleHeaderLinkButtonClick(2)}
         />
         <HeaderLinkButton
